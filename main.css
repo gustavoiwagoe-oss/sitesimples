@@ -1,0 +1,309 @@
+/* --- VARIÁVEIS DE TEMA (Paleta Moderna) --- */
+:root {
+    /* Exemplo atual: Açaiteria Moderna */
+    --cor-primaria: #7e22ce;       /* Roxo vibrante (Cor principal da marca) */
+    --cor-secundaria: #a855f7;     /* Roxo claro (Para gradientes e efeitos) */
+    --cor-destaque: #f59e0b;       /* Amarelo/Laranja (Para botões de compra e preços) */
+    
+    --cor-texto: #1f2937;          /* Cinza escuro (mais elegante que preto puro) */
+    --cor-texto-claro: #6b7280;    /* Cinza claro para descrições */
+    --cor-fundo: #f8fafc;          /* Fundo da página levemente acinzentado/frio */
+    --cor-fundo-cards: #ffffff;    /* Fundo branco puro para os produtos */
+    
+    --fonte-principal: 'Poppins', sans-serif;
+    
+    /* Efeitos Modernos */
+    --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --sombra-hover: 0 15px 35px rgba(126, 34, 206, 0.2); /* Sombra puxada pro roxo */
+    --raio-borda: 16px;            /* Bordas mais arredondadas */
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- Cabeçalho Moderno (Efeito Vidro / Glassmorphism) --- */
+.header {
+    background-color: rgba(255, 255, 255, 0.85); /* Fundo semi-transparente */
+    backdrop-filter: blur(12px); /* Desfoca o que está atrás */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    background: linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Logo com gradiente */
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+/* Efeito moderno de linha embaixo do link ao passar o mouse */
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--cor-primaria);
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: var(--cor-primaria);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--cor-primaria);
+    cursor: pointer;
+}
+
+/* --- Hero (Banner Principal) --- */
+.hero {
+    /* Gradiente moderno por cima da imagem */
+    background: linear-gradient(135deg, rgba(30, 10, 45, 0.85) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1553530666-ba11a90a19e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+    color: #ffffff;
+    text-align: center;
+    padding: 120px 20px;
+    border-radius: 0 0 40px 40px; /* Borda inferior arredondada */
+    margin-bottom: 40px;
+    box-shadow: var(--sombra-suave);
+}
+
+.hero h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    margin-bottom: 30px;
+}
+
+/* Botão Moderno (Estilo Pílula) */
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--cor-destaque), #ea580c); /* Gradiente Laranja/Amarelo */
+    color: #ffffff;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px; /* Arredondado igual pílula */
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); /* Sombra da cor do botão */
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02); /* Levanta e cresce um pouquinho */
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+}
+
+/* --- Produtos (Cards Modernos) --- */
+.produtos {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--cor-texto);
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.section-title span {
+    color: var(--cor-primaria); /* Dá destaque a uma parte do título */
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--cor-fundo-cards);
+    border-radius: var(--raio-borda);
+    border: 1px solid rgba(0,0,0,0.03); /* Borda super sutil */
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efeito de flutuação ao passar o mouse */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-hover);
+}
+
+.card-img {
+    height: 220px;
+    background: linear-gradient(45deg, #e5e7eb, #f3f4f6); /* Falso skeleton loading */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 1.2rem;
+}
+
+.card-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    font-size: 1.4rem;
+    color: var(--cor-texto);
+    margin-bottom: 10px;
+}
+
+.card-info p {
+    color: var(--cor-texto-claro);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Preço no estilo "Badge/Tag" */
+.preco {
+    align-self: flex-start;
+    background-color: var(--cor-secundaria);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #111827;
+    color: #f9fafb;
+    padding: 60px 0 20px;
+    margin-top: 50px;
+    border-radius: 40px 40px 0 0; /* Arredondado no topo */
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.footer-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--cor-primaria);
+}
+
+.footer-info p {
+    margin-bottom: 10px;
+    color: #9ca3af;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* --- Responsivo para Celular --- */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        width: 250px;
+        padding: 20px;
+        box-shadow: var(--sombra-suave);
+        border-radius: var(--raio-borda);
+        text-align: center;
+    }
+    .nav-list.ativo {
+        display: flex;
+        animation: desceMenu 0.3s ease;
+    }
+    
+    @keyframes desceMenu {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+    
+    .hero {
+        padding: 80px 20px;
+        border-radius: 0 0 20px 20px;
+    }
+    
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+}
